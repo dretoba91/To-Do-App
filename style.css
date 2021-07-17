@@ -1,8 +1,222 @@
-html {
-  box-sizing: border-box;
+/* Set root variables
+Define container layouts
+Set hover effects
+Style input placeholder using pseudo classes.
+Add Media queries
+ */
+
+:root {
+  --primary-color: white;
+  --secondary-color: #1e1e1e;
+  --text-color: black;
+  --task-color: whitesmoke;
+  --footer-color: rgb(82, 80, 80);
+  --theme-btn: url('assets/Dark-theme-btn.svg');
+  --container-bg: url('./assets/Light-empty.svg');
+  --complete-icon: url('assets/complete.svg');
+  --filter: none;
+  --theme-transition: 0s;
+}
+
+* {
+  font-family: Cochin;
+  outline: none;
 }
 
 body {
-  margin: 0;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  border: 4px var(--footer-color) solid;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 80vh;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--primary-color);
+  transition: var(--theme-transition);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-weight: 900;
+  color: var(--text-color);
+  font-size: 30px;
+}
+
+.theme_toggle {
+  text-align: right;
+  margin-right: -15px;
+}
+
+.theme_toggle_btn {
+  min-width: 30px;
+  min-height: 30px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  background-image: var(--theme-btn);
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-position: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.theme_toggle_btn:hover {
+  background-size: 85%;
+  transition: 0.5s;
+  transform: rotate(90deg);
+}
+
+.tasks {
+  margin: 20px 0px;
+  overflow: hidden;
+  padding-right: 15px;
+}
+
+#task_list {
+  padding: 0px;
+}
+
+.todo_list_empty {
+  transition: 0px;
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-image: var(--container-bg);
+}
+
+.task_item {
+  list-style-type: none;
+  border: 1px var(--secondary-color);
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  background-color: var(--task-color);
+  color: var(--text-color);
+}
+
+.task_item:hover {
+  transition: 0.5s;
+  cursor: pointer;
+  background-color: rgba(226, 226, 226, 0.192);
+}
+
+.task_check_btn {
+  width: 10px;
+  height: 10px;
+  margin-right: 16px;
+  padding: 3px;
+  border: 2px var(--secondary-color) solid;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+  border: 2px grey solid;
+  cursor: pointer;
+}
+
+.task_check_btn:hover {
+  background-image: url('assets/complete.svg');
+  filter: var(--filter);
+}
+
+.task_bio {
+  font-size: 18px;
+}
+
+.task-completed {
+  transition: 0.5s;
+  transform: scale(90%);
+  text-decoration: line-through;
+  color: rgb(150, 150, 150);
+  opacity: 0;
+}
+
+footer {
+  position: absolute;
+  width: 400px;
+  bottom: 0px;
+  padding: 15px 10px;
+  background-color: var(--footer-color);
+  left: 0px;
+  /* left: 500px; */
+  border: 5px var(--footer-color) solid;
+  /* border-radius: 20px; */
+}
+
+footer form {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+#new_task_input {
+  min-width: 250px;
+  margin-right: 40px;
+  font-size: 20px;
+  color: whitesmoke;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px rgba(255, 255, 255, 0.267) solid;
+}
+
+#new_task_input::placeholder {
+  color: rgba(255, 255, 255, 0.589);
+  font-size: 20px;
+  font-family: monospace;
+}
+
+#new_task_input_btn {
+  width: 45px;
+  height: 30px;
+  padding-bottom: 45px;
+  background-color: transparent;
+  border: none;
+  background-image: url('assets/new.svg');
+}
+
+.taskCompleted {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    margin: 0px;
+    padding: 0px;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: var(--bg-color);
+  }
+
+  .theme-toggle {
+    margin-top: 30px;
+  }
+
+  .container {
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    height: 93vh;
+    padding: 0px 20px;
+  }
+
+  #new-task-input {
+    margin-right: 20px;
+  }
 }

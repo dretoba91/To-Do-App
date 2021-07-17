@@ -1,24 +1,40 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template</title>
-    <!-- style -->
-    <link
-      rel="icon"
-      type="image.png"
-      href=" https://www.google.com/s2/favicons?domain=css-tricks.com"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <title>TO-DO: by Dare Toba.</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- <i class="fas fa-chess-queen"></i> -->
-    <!-- script -->
+    <!-- <script src="script.js"></script> -->
+    <div class="container todo_list_empty">
+      <header>
+        <div class="theme_toggle">
+          <button class="theme_toggle_btn"></button>
+        </div>
+        <span class="heading">Day Activities</span>
+      </header>
+
+      <section class="tasks">
+        <ul id="task_list"></ul>
+      </section>
+
+      <footer>
+        <form action="" id="new_task_form">
+          <input
+            type="text"
+            class="new_task_input"
+            id="new_task_input"
+            placeholder="Add New Task"
+            value=""
+          />
+          <button type="submit" id="new_task_input_btn"></button>
+        </form>
+      </footer>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
